@@ -17,7 +17,6 @@ import { FormsModule } from '@angular/forms';
 import { ZluxButtonModule, ZluxPopupManagerModule } from '@zlux/widgets';
 
 import { AppComponent } from './app.component';
-import {HelloService} from './services/hello.service';
 
 // import { L10nConfig, L10nLoader, TranslationModule, StorageStrategy, ProviderType } from 'angular-l10n';
 import { TranslationModule, L10nConfig, ISOCode, L10nLoader, LOCALE_CONFIG,
@@ -47,7 +46,7 @@ const l10nConfig: L10nConfig = {
     ZluxPopupManagerModule,
     TranslationModule.forRoot(l10nConfig)
   ],
-  providers: [HelloService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
