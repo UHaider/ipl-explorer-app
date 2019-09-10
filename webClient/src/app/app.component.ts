@@ -49,7 +49,7 @@ export class AppComponent {
   actionType: string = "Launch";
   targetMode: string = "PluginCreate";
   items = ['a', 'b', 'c', 'd']
-  helloText: string;
+  helloText: any;
   serverResponseMessage: string;
   myUrl:any;
   test:any;
@@ -76,7 +76,7 @@ export class AppComponent {
       this.http.get(this.myUrl).map(res=>res.json()).subscribe(
         data=>{
           this.helloText=JSON.stringify(data);
-          this.test=data.LOADxx
+          this.test=this.helloText.LOADxx
           
         },
         error=>{
