@@ -75,7 +75,9 @@ export class AppComponent {
       this.log.info(`Sending GET request to ${this.myUrl}`);
       this.http.get(this.myUrl).map(res=>res.json()).subscribe(
         data=>{
-          this.helloText=data;
+          this.helloText=JSON.stringify(data);
+          this.test=data.LOADxx
+          
         },
         error=>{
           this.log.warn(`Error from GET. error=${error}`);
