@@ -15,6 +15,7 @@ import { Angular2InjectionTokens } from 'pluginlib/inject-resources';
 
 import { ZluxPopupManagerService, ZluxErrorSeverity } from '@zlux/widgets';
 
+import { Http, Response } from '@angular/http'
 
 import { LocaleService, TranslationService, Language } from 'angular-l10n';
 
@@ -58,12 +59,28 @@ export class AppComponent {
     @Inject(Angular2InjectionTokens.LOGGER) private log: ZLUX.ComponentLogger,    
     @Inject(Angular2InjectionTokens.LAUNCH_METADATA) private launchMetadata: any,
     private popupManager: ZluxPopupManagerService,
+    private http:Http
  ) {   
     //is there a better way so that I can get this info into the HelloService constructor instead of calling a set method directly after creation???
      this.popupManager.setLogger(log);
     if (this.launchMetadata != null && this.launchMetadata.data != null && this.launchMetadata.data.type != null) {
       this.handleLaunchOrMessageObject(this.launchMetadata.data);
     }
+
+    let myUrl: string = ZoweZLUX.uriBroker.pluginRESTUri(this.pluginDefinition.getBasePlugin(), 'explorer', 'info');
+    setTimeout(()=> {
+      this.log.info(`Sending GET request to ${myUrl}`);
+      this.http.get(myUrl).map(res=>res.json()).subscribe(
+        data=>{
+          this.helloText=data;
+        },
+        error=>{
+          this.log.warn(`Error from GET. error=${error}`);
+          this.helloText=error;
+        }
+      );
+      },2000);
+  
   }
 
   handleLaunchOrMessageObject(data: any) {
