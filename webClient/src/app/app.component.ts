@@ -69,8 +69,9 @@ export class AppComponent {
       this.handleLaunchOrMessageObject(this.launchMetadata.data);
     }
     this.test=this.pluginDefinition.getBasePlugin();
-    this.myUrl= ZoweZLUX.uriBroker.pluginRESTUri(this.pluginDefinition.getBasePlugin(), 'explorer', 'info');
-    setTimeout(()=> {
+   // this.myUrl= ZoweZLUX.uriBroker.pluginRESTUri(this.pluginDefinition.getBasePlugin(), 'explorer', 'info');
+   this.myUrl="/ZLUX/plugins/org.zowe.ipl/services/explorer/_current/info"
+   setTimeout(()=> {
       this.log.info(`Sending GET request to ${this.myUrl}`);
       this.http.get(this.myUrl).map(res=>res.json()).subscribe(
         data=>{
