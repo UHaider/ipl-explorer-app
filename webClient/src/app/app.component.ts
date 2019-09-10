@@ -51,6 +51,8 @@ export class AppComponent {
   items = ['a', 'b', 'c', 'd']
   helloText: string;
   serverResponseMessage: string;
+  myUrl:any;
+  test:any;
 
   constructor(
     public locale: LocaleService,
@@ -66,11 +68,11 @@ export class AppComponent {
     if (this.launchMetadata != null && this.launchMetadata.data != null && this.launchMetadata.data.type != null) {
       this.handleLaunchOrMessageObject(this.launchMetadata.data);
     }
-
-    let myUrl: string = ZoweZLUX.uriBroker.pluginRESTUri(this.pluginDefinition.getBasePlugin(), 'explorer', 'info');
+    this.test=this.pluginDefinition.getBasePlugin();
+    this.myUrl= ZoweZLUX.uriBroker.pluginRESTUri(this.pluginDefinition.getBasePlugin(), 'explorer', 'info');
     setTimeout(()=> {
-      this.log.info(`Sending GET request to ${myUrl}`);
-      this.http.get(myUrl).map(res=>res.json()).subscribe(
+      this.log.info(`Sending GET request to ${this.myUrl}`);
+      this.http.get(this.myUrl).map(res=>res.json()).subscribe(
         data=>{
           this.helloText=data;
         },
