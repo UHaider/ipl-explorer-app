@@ -69,6 +69,8 @@ export class AppComponent {
   dataarray:any;
   jsonData:any;
   value:number;
+  currindex:any;
+   dup_array:any=[];
 
   constructor(
     public locale: LocaleService,
@@ -122,12 +124,12 @@ export class AppComponent {
   }
   changesubOptions(e){
     console.log(e)
-    var dup_array;
+    
     for(var i = 0, len = this.SubOptions.length; i < len; ++i)
-      dup_array[i] = this.SubOptions[i].Member;
-    var index = dup_array[i].indexOf(e);
-    console.log(index)
-    this.memberSelected=this.SubOptions[index]
+      this.dup_array[i] = this.SubOptions[i].Member;
+    this.currindex = this.dup_array[i].indexOf(e);
+    console.log( this.currindex)
+    this.memberSelected=this.SubOptions[ this.currindex]
 
    // this.memberSelected=this.SubOptions[this.value]
    console.log(this.memberSelected)
