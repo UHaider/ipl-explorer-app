@@ -20,8 +20,8 @@ import { AppComponent } from './app.component';
 import {MatTabsModule} from '@angular/material';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatListModule} from '@angular/material/list';
+//import {MatDividerModule} from '@angular/material/divider';
+// import {MatListModule} from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -56,8 +56,8 @@ const l10nConfig: L10nConfig = {
     MatExpansionModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
-    MatDividerModule,
-    MatListModule,
+    //MatDividerModule,
+   // MatListModule,
     TranslationModule.forRoot(l10nConfig)
   ],
   providers: [],
