@@ -7,10 +7,10 @@
   
   Copyright Contributors to the Zowe Project.
 -->
-<div *ngIf="!dataLoading">
+<div *ngIf="dataLoading">
   data loading........................
   </div>
-<div *ngIf="dataLoading">
+<div *ngIf="!dataLoading">
     <select class="custom-select" #t (change)="changeCity(t.value)">
         <option value="" disabled>Select to view</option>
         <option *ngFor="let city of City" [ngValue]="city">{{city}}</option>
