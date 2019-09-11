@@ -16,7 +16,7 @@
  <div *ngIf="mainSelection">
     <h4>Select member</h4>
 
-    <select class="custom-select" #s (change)="changesubOptions(s.index)" >
+    <select class="custom-select" #s (change)="changesubOptions(item)" >
         <option value="" disabled>Select Memeber</option>
         <option *ngFor="let item of SubOptions" [ngValue]="item">{{item.Member}}</option>
      </select>

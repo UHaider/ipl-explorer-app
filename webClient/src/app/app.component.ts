@@ -117,9 +117,10 @@ export class AppComponent {
     this.SubOptions=this.jsonData[this.select]
   }
   changesubOptions(e){
+    console.log(e)
     this.memberSelected=this.SubOptions[0]
     console.log(this.memberSelected)
-    console.log(e)
+    
   }
   handledata(data){
     this.jsonData=data;
