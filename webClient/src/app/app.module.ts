@@ -19,7 +19,7 @@ import { ZluxButtonModule, ZluxPopupManagerModule } from '@zlux/widgets';
 import { AppComponent } from './app.component';
 import {MatTabsModule} from '@angular/material';
 import {MatExpansionModule} from '@angular/material/expansion';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+//import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 //import {MatDividerModule} from '@angular/material/divider';
 // import {MatListModule} from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -55,7 +55,7 @@ const l10nConfig: L10nConfig = {
     MatTabsModule,
     MatExpansionModule,
     BrowserAnimationsModule,
-    MatProgressSpinnerModule,
+   // MatProgressSpinnerModule,
     //MatDividerModule,
    // MatListModule,
     TranslationModule.forRoot(l10nConfig)
