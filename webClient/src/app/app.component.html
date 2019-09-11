@@ -7,8 +7,58 @@
   
   Copyright Contributors to the Zowe Project.
 -->
+<select class="custom-select" (change)="changeCity($event)" formControlName="cityName">
+    <option value="" disabled>Choose your city</option>
+    <option *ngFor="let option of Options" [ngValue]="option">{{option}}</option>
+ </select>
 
-<div class="app-component test-panel-container">
+
+<div *ngFor="let item of LOADxx">
+
+  <h4>{{item.Member}} ---- {{item.Dataset}}</h4>
+
+
+  <div *ngFor="let line of item.Lines">
+    {{line}}
+
+  </div>
+
+</div>
+
+<div *ngFor="let item of IEASYSxx">
+
+  <h4>{{item.Member}} ---- {{item.Dataset}}</h4>
+
+
+  <div *ngFor="let line of item.Lines">
+    {{line}}
+
+  </div>
+
+</div>
+
+<div *ngFor="let item of PROGxx">
+
+  <h4>{{item.Member}} ---- {{item.Dataset}}</h4>
+
+
+  <div *ngFor="let line of item.Lines">
+    {{line}}
+
+  </div>
+
+</div>
+
+<div *ngFor="let item of BPXPRMxx">
+
+  <h4>{{item.Member}} ---- {{item.Dataset}}</h4>
+  <div *ngFor="let line of item.Lines">
+    {{line}}
+
+  </div>
+
+</div>
+<!-- <div class="app-component test-panel-container">
  <mat-tab-group class="md-primary">
   <mat-tab label="LOADxx"> 
       <mat-accordion>
@@ -19,14 +69,14 @@
                   <h4>{{item.Member}} ----  {{item.Dataset}}</h4>
               </mat-panel-title>
             </mat-expansion-panel-header>
-            <!-- <mat-list role="list"> -->
+            <mat-list role="list"> 
                 <div *ngFor="let line of item.Lines">   
                     {{line}}          
-                    <!-- <mat-list-item role="listitem">{{line}}</mat-list-item> -->
+                    <mat-list-item role="listitem">{{line}}</mat-list-item> 
                   </div>
-              <!-- </mat-list>     -->
+              </mat-list>   
           </mat-expansion-panel>
-          <!-- <mat-divider></mat-divider> -->
+        <mat-divider></mat-divider> 
           </div>
         </mat-accordion>
     
@@ -40,12 +90,12 @@
                   <h4> {{item.Member}} ----  {{item.Dataset}}  </h4>
               </mat-panel-title>
             </mat-expansion-panel-header>
-              <!-- <mat-list role="list"> -->
+              <mat-list role="list"> 
                   <div *ngFor="let line of item.Lines">   
                       {{line}}          
-                      <!-- <mat-list-item role="listitem">{{line}}</mat-list-item> -->
+                      <mat-list-item role="listitem">{{line}}</mat-list-item> 
                     </div>
-                <!-- </mat-list>     -->
+               </mat-list>     
             
           </mat-expansion-panel>
           <mat-divider></mat-divider>
@@ -61,12 +111,12 @@
                   <h4> {{item.Member}} ----  {{item.Dataset}}</h4>
               </mat-panel-title>
             </mat-expansion-panel-header>
-              <!-- <mat-list role="list"> -->
+              <mat-list role="list"> 
                   <div *ngFor="let line of item.Lines">   
                       {{line}}          
-                      <!-- <mat-list-item role="listitem">{{line}}</mat-list-item> -->
+                   <mat-list-item role="listitem">{{line}}</mat-list-item> 
                     </div>
-                <!-- </mat-list>     --> 
+                </mat-list>   
             
           </mat-expansion-panel>
           <mat-divider></mat-divider>
@@ -82,12 +132,12 @@
                   <h4> {{item.Member}} ----  {{item.Dataset}}</h4>
               </mat-panel-title>
             </mat-expansion-panel-header>
-               <!-- <mat-list role="list"> -->
+                <mat-list role="list"> 
                   <div *ngFor="let line of item.Lines">   
                       {{line}}          
-                      <!-- <mat-list-item role="listitem">{{line}}</mat-list-item> -->
+                      <mat-list-item role="listitem">{{line}}</mat-list-item> 
                     </div>
-                <!-- </mat-list>     -->  
+                 </mat-list>     
             
           </mat-expansion-panel>
           <mat-divider></mat-divider>
@@ -95,7 +145,7 @@
         </mat-accordion>
   </mat-tab>
 </mat-tab-group>
-</div>
+</div> -->
 <zlux-popup-manager>
 </zlux-popup-manager>
 

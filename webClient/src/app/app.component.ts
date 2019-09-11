@@ -35,6 +35,7 @@ export class AppComponent {
   BPXPRMxx:any;
   IEASYSxx:any;
   PROGxx:any;
+  Options: any = ['LOADxx', 'BPXPRMxx', 'IEASYSxx', 'PROGxx']
   parameters: string =
 `{"type":"connect",
   "connectionSettings":{
@@ -90,6 +91,11 @@ export class AppComponent {
       );
       },2000);
   
+  }
+  changeCity(e) {
+    // this.cityName.setValue(e.target.value, {
+    //   onlySelf: true
+    // })
   }
   handledata(data){
  this.LOADxx=data['LOADxx'];

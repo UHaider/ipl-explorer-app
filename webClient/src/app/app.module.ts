@@ -17,12 +17,12 @@ import { FormsModule } from '@angular/forms';
 import { ZluxButtonModule, ZluxPopupManagerModule } from '@zlux/widgets';
 
 import { AppComponent } from './app.component';
-import {MatTabsModule} from '@angular/material';
-import {MatExpansionModule} from '@angular/material/expansion';
+// import {MatTabsModule} from '@angular/material';
+// import {MatExpansionModule} from '@angular/material/expansion';
 //import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatDividerModule} from '@angular/material/divider';
- import {MatListModule} from '@angular/material/list';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import {MatDividerModule} from '@angular/material/divider';
+//  import {MatListModule} from '@angular/material/list';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from '@angular/common/http';
 // import { L10nConfig, L10nLoader, TranslationModule, StorageStrategy, ProviderType } from 'angular-l10n';
@@ -52,21 +52,21 @@ const l10nConfig: L10nConfig = {
     ZluxButtonModule,
     ZluxPopupManagerModule,
      HttpClientModule,
-    MatTabsModule,
-    MatExpansionModule,
-    BrowserAnimationsModule,
-    MatDividerModule,
-    MatListModule,
+    // MatTabsModule,
+    // MatExpansionModule,
+    // BrowserAnimationsModule,
+    // MatDividerModule,
+    // MatListModule,
     TranslationModule.forRoot(l10nConfig)
   ],
-  exports: [
+  // exports: [
 
-    MatTabsModule,
-    MatExpansionModule,
-    BrowserAnimationsModule,
-    MatDividerModule,
-    MatListModule,
-  ],
+  //   MatTabsModule,
+  //   MatExpansionModule,
+  //   BrowserAnimationsModule,
+  //   MatDividerModule,
+  //   MatListModule,
+  // ],
   providers: [],
   bootstrap: [AppComponent]
 })
