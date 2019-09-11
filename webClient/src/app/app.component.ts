@@ -67,6 +67,7 @@ export class AppComponent {
   memberSelected:any=[];
   dataarray:any;
   jsonData:any;
+  value:number;
 
   constructor(
     public locale: LocaleService,
@@ -80,6 +81,7 @@ export class AppComponent {
  ) {   
     //is there a better way so that I can get this info into the HelloService constructor instead of calling a set method directly after creation???
      this.popupManager.setLogger(log);
+     this.value = 0;
     if (this.launchMetadata != null && this.launchMetadata.data != null && this.launchMetadata.data.type != null) {
       this.handleLaunchOrMessageObject(this.launchMetadata.data);
     }
@@ -118,7 +120,7 @@ export class AppComponent {
   }
   changesubOptions(e){
     console.log(e)
-    this.memberSelected=this.SubOptions[0]
+    this.memberSelected=this.SubOptions[this.value]
     console.log(this.memberSelected)
     
   }
