@@ -18,7 +18,7 @@
 
   <select class="custom-select" #s (change)="changesubOptions(item)">
     <option value="" disabled>Select Memeber</option>
-    <option *ngFor="let item of SubOptions;let i = index" [value]="i" [ngValue]="item">{{item.Member}}</option>
+    <option *ngFor="let item of SubOptions;let i = index"  #selectedOption (click)="selectedOption(i,selectedOption)">{{item.Member}}</option>
   </select>
 
   <h4>{{memberSelected.Member}} ---- {{memberSelected.Dataset}}</h4>
