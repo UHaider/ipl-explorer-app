@@ -37,6 +37,7 @@ export class AppComponent {
   IEASYSxx:any;
   PROGxx:any;
   mainSelection:boolean=false;
+  dataLoading:boolean=true;
   Options: any = ['LOADxx', 'BPXPRMxx', 'IEASYSxx', 'PROGxx']
   
   parameters: string =
@@ -93,6 +94,7 @@ export class AppComponent {
       this.http.get(this.myUrl).map(res=>res.json()).subscribe(
         data=>{
           console.log(data)
+          this.dataLoading=false;
           this.handledata(data)
     
           
@@ -120,8 +122,12 @@ export class AppComponent {
   }
   changesubOptions(e){
     console.log(e)
+    var index = this.SubOptions.indexOf(e);
+    console.log(index)
+    this.memberSelected=this.SubOptions[index]
+
    // this.memberSelected=this.SubOptions[this.value]
-   // console.log(this.memberSelected)
+   console.log(this.memberSelected)
     
   }
   selectedOption(i,optionselected){

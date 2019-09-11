@@ -7,26 +7,33 @@
   
   Copyright Contributors to the Zowe Project.
 -->
-<select class="custom-select" #t (change)="changeCity(t.value)">
-  <option value="" disabled>Select to view</option>
-  <option *ngFor="let city of City" [ngValue]="city">{{city}}</option>
-</select>
-
-
-<div *ngIf="mainSelection">
-  <h4>Select member</h4>
-
-  <select class="custom-select" #s (change)="changesubOptions(item)">
-    <option value="" disabled>Select Memeber</option>
-    <option *ngFor="let item of SubOptions;let i = index"  #selectedOption (click)="selectedOption(i,selectedOption)">{{item.Member}}</option>
-  </select>
-
-  <h4>{{memberSelected.Member}} ---- {{memberSelected.Dataset}}</h4>
-  <div *ngFor="let line of memberSelected.Lines">
-    {{line}}
-
+<div *ngIf="!dataLoading">
+  data loading........................
   </div>
+<div *ngIf="dataLoading">
+    <select class="custom-select" #t (change)="changeCity(t.value)">
+        <option value="" disabled>Select to view</option>
+        <option *ngFor="let city of City" [ngValue]="city">{{city}}</option>
+      </select>
+      
+      
+      <div *ngIf="mainSelection">
+        <h4>Select member</h4>
+      
+        <select class="custom-select" #s (change)="changesubOptions(s.value)">
+          <option value="" disabled>Select Memeber</option>
+          <option *ngFor="let item of SubOptions" >{{item.Member}}</option>
+        </select>
+      
+        <h4>{{memberSelected.Member}} ---- {{memberSelected.Dataset}}</h4>
+        <div *ngFor="let line of memberSelected.Lines">
+          {{line}}
+      
+        </div>
+      </div>
+
 </div>
+
 
 
 <!-- <div *ngFor="let item of SubOptions">
