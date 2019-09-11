@@ -37,6 +37,7 @@ export class AppComponent {
   IEASYSxx:any;
   PROGxx:any;
   Options: any = ['LOADxx', 'BPXPRMxx', 'IEASYSxx', 'PROGxx']
+  
   parameters: string =
 `{"type":"connect",
   "connectionSettings":{
@@ -61,6 +62,7 @@ export class AppComponent {
   test:any;
   select:any;
   City: any = ['LOADxx', 'BPXPRMxx', 'IEASYSxx', 'PROGxx']
+  SubOptions:any=[]
   dataarray:any;
   jsonData:any;
 
@@ -109,6 +111,10 @@ export class AppComponent {
     console.log(e)
     this.select=e
     this.dataarray=this.jsonData[this.select];
+    this.SubOptions=this.jsonData[this.select]
+  }
+  changesubOptions(e){
+    console.log(e)
   }
   handledata(data){
     this.jsonData=data;

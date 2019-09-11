@@ -8,13 +8,18 @@
   Copyright Contributors to the Zowe Project.
 -->
 <select class="custom-select" #t (change)="changeCity(t.value)" >
-    <option value="" disabled>Choose your city</option>
+    <option value="" disabled>Select to view</option>
     <option *ngFor="let city of City" [ngValue]="city">{{city}}</option>
  </select>
 
 <h2>{{select}}</h2>
 
-<div *ngFor="let item of dataarray">
+<select class="custom-select" #t (change)="changesubOptions(t.value)" >
+    <option value="" disabled>Select Memeber</option>
+    <option *ngFor="let item of SubOptions" [ngValue]="item">{{item.Member}}</option>
+ </select>
+
+<!-- <div *ngFor="let item of SubOptions">
 
   <h4>{{item.Member}} ---- {{item.Dataset}}</h4>
 
@@ -24,7 +29,7 @@
 
   </div>
 
-</div>
+</div> -->
 <!-- 
 <h2>IEASYSxx</h2>
 <div *ngFor="let item of IEASYSxx">
