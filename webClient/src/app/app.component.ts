@@ -31,6 +31,10 @@ export class AppComponent {
 
   targetAppId: string = "org.zowe.terminal.tn3270";
   callStatus: string;
+  LOADxx:any;
+  BPXPRMxx:any;
+  IEASYSxx:any;
+  PROGxx:any;
   parameters: string =
 `{"type":"connect",
   "connectionSettings":{
@@ -75,8 +79,8 @@ export class AppComponent {
       this.log.info(`Sending GET request to ${this.myUrl}`);
       this.http.get(this.myUrl).map(res=>res.json()).subscribe(
         data=>{
-          this.helloText=JSON.stringify(data);
-          this.test=this.helloText.LOADxx
+          this.handledata(data)
+    
           
         },
         error=>{
@@ -86,6 +90,18 @@ export class AppComponent {
       );
       },2000);
   
+  }
+  handledata(data){
+ this.LOADxx=data['LOADxx'];
+  console.log(this.LOADxx);
+
+  this.BPXPRMxx=data.BPXPRMxx;
+  console.log(this.BPXPRMxx);
+
+  this.IEASYSxx=data.IEASYSxx;
+  this.PROGxx=data.PROGxx;
+
+
   }
 
   handleLaunchOrMessageObject(data: any) {

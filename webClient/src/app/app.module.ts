@@ -17,7 +17,14 @@ import { FormsModule } from '@angular/forms';
 import { ZluxButtonModule, ZluxPopupManagerModule } from '@zlux/widgets';
 
 import { AppComponent } from './app.component';
+import {MatTabsModule} from '@angular/material';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { HttpClientModule } from '@angular/common/http';
 // import { L10nConfig, L10nLoader, TranslationModule, StorageStrategy, ProviderType } from 'angular-l10n';
 import { TranslationModule, L10nConfig, ISOCode, L10nLoader, LOCALE_CONFIG,
   TRANSLATION_CONFIG, LocaleConfig, TranslationConfig } from 'angular-l10n';
@@ -44,6 +51,13 @@ const l10nConfig: L10nConfig = {
     FormsModule,
     ZluxButtonModule,
     ZluxPopupManagerModule,
+     HttpClientModule,
+    MatTabsModule,
+    MatExpansionModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule,
+    MatDividerModule,
+    MatListModule,
     TranslationModule.forRoot(l10nConfig)
   ],
   providers: [],
