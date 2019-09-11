@@ -7,11 +7,9 @@
   
   Copyright Contributors to the Zowe Project.
 -->
-<select class="custom-select" (change)="changeCity($event)" formControlName="cityName">
-    <option value="" disabled>Choose your city</option>
-    <option *ngFor="let option of Options" [ngValue]="option">{{option}}</option>
- </select>
 
+
+<h2>LOADxx</h2>
 
 <div *ngFor="let item of LOADxx">
 
@@ -25,6 +23,7 @@
 
 </div>
 
+<h2>IEASYSxx</h2>
 <div *ngFor="let item of IEASYSxx">
 
   <h4>{{item.Member}} ---- {{item.Dataset}}</h4>
@@ -37,6 +36,7 @@
 
 </div>
 
+<h2>PROGxx</h2>
 <div *ngFor="let item of PROGxx">
 
   <h4>{{item.Member}} ---- {{item.Dataset}}</h4>
@@ -49,9 +49,10 @@
 
 </div>
 
+<h2>BPXPRMxx</h2>
 <div *ngFor="let item of BPXPRMxx">
+    <h4>{{item.Member}} ---- {{item.Dataset}}</h4>
 
-  <h4>{{item.Member}} ---- {{item.Dataset}}</h4>
   <div *ngFor="let line of item.Lines">
     {{line}}
 
