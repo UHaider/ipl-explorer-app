@@ -8,7 +8,7 @@
   Copyright Contributors to the Zowe Project.
 -->
 <div *ngIf="dataLoading">
-  data loading........................
+  Fetching information. Please wait...
   </div>
 <div *ngIf="!dataLoading">
     <select class="custom-select" #t (change)="changeCity(t.value)">
@@ -26,7 +26,7 @@
         </select>
       
         <h4>Member:{{memberSelected.Member}}  --- DataSet: {{memberSelected.Dataset.split(':')[0]}}  ---  Volume: {{memberSelected.Dataset.split(':')[1]}}</h4>
-        <button (click)="callExternalEvent()">Click me!</button>
+        <button style="background-color:#8cb4ed;color:white" (click)="callExternalEvent()">Open in Editor!</button>
         <div *ngFor="let line of memberSelected.Lines">
           {{line}}
       
