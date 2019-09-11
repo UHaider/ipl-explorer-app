@@ -100,10 +100,7 @@ export class AppComponent {
       },2000);
   
   }
-   /*########### Form ###########*/
-   registrationForm = this.fb.group({
-    cityName: ['']
-  })
+  
 
   changeCity(e) {
     // this.cityName.setValue(e.target.value, {
