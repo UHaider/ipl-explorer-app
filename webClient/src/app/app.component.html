@@ -26,6 +26,7 @@
         </select>
       
         <h4>Member:{{memberSelected.Member}}  --- DataSet: {{memberSelected.Dataset.split(':')[0]}}  ---  Volume: {{memberSelected.Dataset.split(':')[1]}}</h4>
+        <button (click)="callExternalEvent()">Click me!</button>
         <div *ngFor="let line of memberSelected.Lines">
           {{line}}
       

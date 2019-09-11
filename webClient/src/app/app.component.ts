@@ -30,7 +30,7 @@ import { LocaleService, TranslationService, Language } from 'angular-l10n';
 export class AppComponent {
   @Language() lang: string;
 
-  targetAppId: string = "org.zowe.terminal.tn3270";
+  targetAppId: string = "org.zowe.editor";
   callStatus: string;
   LOADxx:any;
   BPXPRMxx:any;
@@ -41,18 +41,7 @@ export class AppComponent {
   Options: any = ['LOADxx', 'BPXPRMxx', 'IEASYSxx', 'PROGxx']
   
   parameters: string =
-`{"type":"connect",
-  "connectionSettings":{
-    "host":"localhost",
-    "port":23,
-    "deviceType":5,
-    "alternateHeight":60,
-    "alternateWidth":132,
-    "oiaEnabled": true,
-    "security": {
-      "type":0
-    }
-}}`;
+`{"type": "openFile", "name": "path"}`;
 
   //filled in via radio buttons
   actionType: string = "Launch";
@@ -111,6 +100,69 @@ export class AppComponent {
   
   }
   
+  
+  callExternalEvent() {
+    console.log("Calling External app")
+    let ccDataset=  this.memberSelected.Dataset.split(':')[0]
+  let ccVolume=  this.memberSelected.Dataset.split(':')[1]
+  let ccMember= this.memberSelected.Member;
+    var parameters = null;
+    const popupOptions = {
+      blocking: true,
+      buttons: [this.translation.translate('close')]
+    };
+    /*Parameters for Actions could be a number, string, or object. The actual event context of an Action that an App recieves will be an object with attributes filled in via these parameters*/
+    try {
+      if (this.parameters !== undefined && this.parameters.trim() !== "") {
+        parameters = JSON.parse(this.parameters);
+      }
+    } catch (e) {
+      //this.parameters was not JSON
+    }
+    if (this.targetAppId) {
+      let message = '';
+      /* 
+         With ZLUX, there's a global called ZoweZLUX which holds useful tools. So, a site
+         Can determine what actions to take by knowing if it is or isnt embedded in ZLUX via IFrame.
+      */
+      /* PluginManager can be used to find what Plugins (Apps are a type of Plugin) are part of the current ZLUX instance.
+         Once you know that the App you want is present, you can execute Actions on it by using the Dispatcher.
+      */
+      let dispatcher = ZoweZLUX.dispatcher;
+      let pluginManager = ZoweZLUX.pluginManager;
+      let plugin = pluginManager.getPlugin(this.targetAppId);
+      if (plugin) {
+        let type = dispatcher.constants.ActionType[this.actionType];
+        let mode = dispatcher.constants.ActionTargetMode[this.targetMode];
+
+        if (type != undefined && mode != undefined) {
+          let actionTitle = 'Launch app from sample app';
+          let actionID = 'org.zowe.zlux.sample.launch';
+          let argumentFormatter = {data: {op:'deref',source:'event',path:['data']}};
+          /*Actions can be made ahead of time, stored and registered at startup, but for example purposes we are making one on-the-fly.
+            Actions are also typically associated with Recognizers, which execute an Action when a certain pattern is seen in the running App.
+          */
+          let action = dispatcher.makeAction(actionID, actionTitle, mode,type,this.targetAppId,argumentFormatter);
+          let argumentData = {'data':(parameters ? parameters : this.parameters)};
+          this.log.info((message = this.translation.translate('request_succeeded'))); // App request succeeded
+          this.callStatus = message;
+          /*Just because the Action is invoked does not mean the target App will accept it. We've made an Action on the fly,
+            So the data could be in any shape under the "data" attribute and it is up to the target App to take action or ignore this request*/
+          dispatcher.invokeAction(action,argumentData);
+        } else {
+          this.log.warn((message = 'Invalid target mode or action type specified'));        
+        }
+      } else {
+        this.popupManager.reportError(
+          ZluxErrorSeverity.WARNING,
+          this.translation.translate('invalid_plugin_identifier'), // 
+          `${this.translation.translate('no_plugin_found_for_identifier')} ${this.targetAppId}`, popupOptions);
+      }
+      
+      this.callStatus = message;
+    }
+  }
+
 
   changeCity(e) {
     // this.cityName.setValue(e.target.value, {
@@ -158,6 +210,7 @@ export class AppComponent {
 
 
   }
+
 
   handleLaunchOrMessageObject(data: any) {
     switch (data.type) {
