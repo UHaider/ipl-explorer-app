@@ -126,8 +126,11 @@ export class AppComponent {
     console.log(e)
     
     for(var i = 0, len = this.SubOptions.length; i < len; ++i)
+    {
       this.dup_array[i] = this.SubOptions[i].Member;
-    this.currindex = this.dup_array[i].indexOf(e);
+    }
+    console.log( this.dup_array)
+    this.currindex = this.dup_array.indexOf(e);
     console.log( this.currindex)
     this.memberSelected=this.SubOptions[ this.currindex]
 
