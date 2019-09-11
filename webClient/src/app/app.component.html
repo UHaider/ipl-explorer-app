@@ -25,7 +25,7 @@
           <option *ngFor="let item of SubOptions" >{{item.Member}}</option>
         </select>
       
-        <h4>{{memberSelected.Member}} ---- {{memberSelected.Dataset}}</h4>
+        <h4>Member:{{memberSelected.Member}}  --- DataSet: {{memberSelected.Dataset.split(':')[0]}}  ---  Volume: {{memberSelected.Dataset.split(':')[1]}}</h4>
         <div *ngFor="let line of memberSelected.Lines">
           {{line}}
       

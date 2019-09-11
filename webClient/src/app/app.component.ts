@@ -120,7 +120,9 @@ export class AppComponent {
     this.select=e;
     this.mainSelection=true;
     this.dataarray=this.jsonData[this.select];
-    this.SubOptions=this.jsonData[this.select]
+    this.SubOptions=this.jsonData[this.select];
+    this.memberSelected=this.SubOptions[0];
+
   }
   changesubOptions(e){
     console.log(e)
