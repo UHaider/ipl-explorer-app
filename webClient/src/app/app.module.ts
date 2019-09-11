@@ -15,6 +15,7 @@ import { NgModule, Inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { ZluxButtonModule, ZluxPopupManagerModule } from '@zlux/widgets';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 // import {MatTabsModule} from '@angular/material';
@@ -52,6 +53,7 @@ const l10nConfig: L10nConfig = {
     ZluxButtonModule,
     ZluxPopupManagerModule,
      HttpClientModule,
+     ReactiveFormsModule,
     // MatTabsModule,
     // MatExpansionModule,
     // BrowserAnimationsModule,

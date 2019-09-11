@@ -7,7 +7,10 @@
   
   Copyright Contributors to the Zowe Project.
 -->
-
+<select class="custom-select" (change)="changeCity($event)" formControlName="cityName">
+    <option value="" disabled>Choose your city</option>
+    <option *ngFor="let city of City" [ngValue]="city">{{city}}</option>
+ </select>
 
 <h2>LOADxx</h2>
 
