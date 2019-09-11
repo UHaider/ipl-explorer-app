@@ -16,6 +16,7 @@ import { Angular2InjectionTokens } from 'pluginlib/inject-resources';
 import { ZluxPopupManagerService, ZluxErrorSeverity } from '@zlux/widgets';
 
 import { Http, Response } from '@angular/http'
+import { FormBuilder, Validators } from "@angular/forms";
 
 import { LocaleService, TranslationService, Language } from 'angular-l10n';
 
@@ -60,7 +61,7 @@ export class AppComponent {
   test:any;
 
   constructor(
-    public locale: LocaleService,
+    public locale: LocaleService,public fb: FormBuilder,
     public translation: TranslationService,
     @Inject(Angular2InjectionTokens.PLUGIN_DEFINITION) private pluginDefinition: ZLUX.ContainerPluginDefinition,
     @Inject(Angular2InjectionTokens.LOGGER) private log: ZLUX.ComponentLogger,    
@@ -92,6 +93,9 @@ export class AppComponent {
       },2000);
   
   }
+  registrationForm = this.fb.group({
+    cityName: ['']
+  })
   changeCity(e) {
     // this.cityName.setValue(e.target.value, {
     //   onlySelf: true
