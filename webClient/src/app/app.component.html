@@ -12,9 +12,9 @@
     <option *ngFor="let city of City" [ngValue]="city">{{city}}</option>
  </select>
 
-<h2>LOADxx</h2>
+<h2>{{select}}</h2>
 
-<div *ngFor="let item of LOADxx">
+<div *ngFor="let item of dataarray">
 
   <h4>{{item.Member}} ---- {{item.Dataset}}</h4>
 
@@ -25,7 +25,7 @@
   </div>
 
 </div>
-
+<!-- 
 <h2>IEASYSxx</h2>
 <div *ngFor="let item of IEASYSxx">
 
@@ -61,7 +61,7 @@
 
   </div>
 
-</div>
+</div> -->
 <!-- <div class="app-component test-panel-container">
  <mat-tab-group class="md-primary">
   <mat-tab label="LOADxx"> 

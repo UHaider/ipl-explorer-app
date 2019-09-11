@@ -59,8 +59,10 @@ export class AppComponent {
   serverResponseMessage: string;
   myUrl:any;
   test:any;
-  City: any = ['Florida', 'South Dakota', 'Tennessee', 'Michigan']
-
+  select:any;
+  City: any = ['LOADxx', 'BPXPRMxx', 'IEASYSxx', 'PROGxx']
+  dataarray:any;
+  jsonData:any;
 
   constructor(
     public locale: LocaleService,
@@ -107,9 +109,12 @@ export class AppComponent {
     // this.cityName.setValue(e.target.value, {
     //   onlySelf: true
     // })
-    console.log(e)
+    console.log(e.target.value)
+    this.select=e.target.value
+    this.dataarray=this.jsonData[this.select];
   }
   handledata(data){
+    this.jsonData=data;
  this.LOADxx=data['LOADxx'];
   console.log(this.LOADxx);
 
