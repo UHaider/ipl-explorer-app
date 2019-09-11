@@ -12,12 +12,16 @@
     <option *ngFor="let city of City" [ngValue]="city">{{city}}</option>
  </select>
 
-<h2>{{select}}</h2>
 
-<select class="custom-select" #s (change)="changesubOptions(s.value)" >
-    <option value="" disabled>Select Memeber</option>
-    <option *ngFor="let item of SubOptions" [ngValue]="item">{{item.Member}}</option>
- </select>
+ <div *ngIf="mainSelection">
+    <h4>Select member</h4>
+
+    <select class="custom-select" #s (change)="changesubOptions(s.index)" >
+        <option value="" disabled>Select Memeber</option>
+        <option *ngFor="let item of SubOptions" [ngValue]="item">{{item.Member}}</option>
+     </select>
+ </div>
+
 
 <!-- <div *ngFor="let item of SubOptions">
 

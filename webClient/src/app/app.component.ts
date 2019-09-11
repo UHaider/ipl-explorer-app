@@ -36,6 +36,7 @@ export class AppComponent {
   BPXPRMxx:any;
   IEASYSxx:any;
   PROGxx:any;
+  mainSelection:boolean=false;
   Options: any = ['LOADxx', 'BPXPRMxx', 'IEASYSxx', 'PROGxx']
   
   parameters: string =
@@ -63,6 +64,7 @@ export class AppComponent {
   select:any;
   City: any = ['LOADxx', 'BPXPRMxx', 'IEASYSxx', 'PROGxx']
   SubOptions:any=[]
+  memberSelected:any=[];
   dataarray:any;
   jsonData:any;
 
@@ -109,11 +111,14 @@ export class AppComponent {
     //   onlySelf: true
     // })
     console.log(e)
-    this.select=e
+    this.select=e;
+    this.mainSelection=true;
     this.dataarray=this.jsonData[this.select];
     this.SubOptions=this.jsonData[this.select]
   }
   changesubOptions(e){
+    this.memberSelected=this.SubOptions[0]
+    console.log(this.memberSelected)
     console.log(e)
   }
   handledata(data){
