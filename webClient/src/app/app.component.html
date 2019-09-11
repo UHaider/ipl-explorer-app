@@ -14,7 +14,7 @@
 
 <h2>{{select}}</h2>
 
-<select class="custom-select" #t (change)="changesubOptions(t.value)" >
+<select class="custom-select" #s (change)="changesubOptions(s.value)" >
     <option value="" disabled>Select Memeber</option>
     <option *ngFor="let item of SubOptions" [ngValue]="item">{{item.Member}}</option>
  </select>
