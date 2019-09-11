@@ -109,8 +109,8 @@ export class AppComponent {
     // this.cityName.setValue(e.target.value, {
     //   onlySelf: true
     // })
-    console.log(e.target.value)
-    this.select=e.target.value
+    console.log(e)
+    this.select=e
     this.dataarray=this.jsonData[this.select];
   }
   handledata(data){
