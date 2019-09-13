@@ -11,11 +11,10 @@
   Fetching information. Please wait...
   </div>
 <div *ngIf="!dataLoading">
-    <select class="custom-select" #t (change)="changeCity(t.value)">
+    <select class="custom-select" #t (change)="changeMember(t.value)">
         <option value="" disabled>Select to view</option>
-        <option *ngFor="let city of City" [ngValue]="city">{{city}}</option>
+        <option *ngFor="let selectMember of arrayMember" [ngValue]="selectMember">{{selectMember}}</option>
       </select>
-      
       
       <div *ngIf="mainSelection">
         <h4>Select member</h4>
@@ -34,145 +33,6 @@
       </div>
 
 </div>
-
-
-
-<!-- <div *ngFor="let item of SubOptions">
-
-  <h4>{{item.Member}} ---- {{item.Dataset}}</h4>
-
-
-  <div *ngFor="let line of item.Lines">
-    {{line}}
-
-  </div>
-
-</div> -->
-<!-- 
-<h2>IEASYSxx</h2>
-<div *ngFor="let item of IEASYSxx">
-
-  <h4>{{item.Member}} ---- {{item.Dataset}}</h4>
-
-
-  <div *ngFor="let line of item.Lines">
-    {{line}}
-
-  </div>
-
-</div>
-
-<h2>PROGxx</h2>
-<div *ngFor="let item of PROGxx">
-
-  <h4>{{item.Member}} ---- {{item.Dataset}}</h4>
-
-
-  <div *ngFor="let line of item.Lines">
-    {{line}}
-
-  </div>
-
-</div>
-
-<h2>BPXPRMxx</h2>
-<div *ngFor="let item of BPXPRMxx">
-    <h4>{{item.Member}} ---- {{item.Dataset}}</h4>
-
-  <div *ngFor="let line of item.Lines">
-    {{line}}
-
-  </div>
-
-</div> -->
-<!-- <div class="app-component test-panel-container">
- <mat-tab-group class="md-primary">
-  <mat-tab label="LOADxx"> 
-      <mat-accordion>
-          <div *ngFor="let item of LOADxx">
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                  <h4>{{item.Member}} ----  {{item.Dataset}}</h4>
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <mat-list role="list"> 
-                <div *ngFor="let line of item.Lines">   
-                    {{line}}          
-                    <mat-list-item role="listitem">{{line}}</mat-list-item> 
-                  </div>
-              </mat-list>   
-          </mat-expansion-panel>
-        <mat-divider></mat-divider> 
-          </div>
-        </mat-accordion>
-    
-  </mat-tab>
-  <mat-tab label="IEASYSxx"> 
-      <mat-accordion>
-          <div *ngFor="let item of IEASYSxx">
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                  <h4> {{item.Member}} ----  {{item.Dataset}}  </h4>
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-              <mat-list role="list"> 
-                  <div *ngFor="let line of item.Lines">   
-                      {{line}}          
-                      <mat-list-item role="listitem">{{line}}</mat-list-item> 
-                    </div>
-               </mat-list>     
-            
-          </mat-expansion-panel>
-          <mat-divider></mat-divider>
-          </div>
-        </mat-accordion>
-  </mat-tab>
-  <mat-tab label="PROGxx">
-      <mat-accordion>
-          <div *ngFor="let item of PROGxx">
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                  <h4> {{item.Member}} ----  {{item.Dataset}}</h4>
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-              <mat-list role="list"> 
-                  <div *ngFor="let line of item.Lines">   
-                      {{line}}          
-                   <mat-list-item role="listitem">{{line}}</mat-list-item> 
-                    </div>
-                </mat-list>   
-            
-          </mat-expansion-panel>
-          <mat-divider></mat-divider>
-          </div>
-        </mat-accordion> 
-  </mat-tab>
-  <mat-tab label="BPXPRMxx"> 
-      <mat-accordion>
-          <div *ngFor="let item of BPXPRMxx">
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                  <h4> {{item.Member}} ----  {{item.Dataset}}</h4>
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-                <mat-list role="list"> 
-                  <div *ngFor="let line of item.Lines">   
-                      {{line}}          
-                      <mat-list-item role="listitem">{{line}}</mat-list-item> 
-                    </div>
-                 </mat-list>     
-            
-          </mat-expansion-panel>
-          <mat-divider></mat-divider>
-          </div>
-        </mat-accordion>
-  </mat-tab>
-</mat-tab-group>
-</div> -->
 <zlux-popup-manager>
 </zlux-popup-manager>
 
